@@ -13,3 +13,4 @@ Envoy is built to be highly performant and extensible, with features like dynami
 ## Theoretical background / technology stack
 
 ## Case study concept description
+![Case study concept image](case-study.svg "Case study concept image")
