@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-04-23T22:15:32.094Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.291 Electron/28.2.10 Safari/537.36" etag="vklrakm8JUteaqnoKmzq" version="22.1.16" type="device">
+<mxfile host="Electron" modified="2024-04-23T22:23:47.911Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.291 Electron/28.2.10 Safari/537.36" etag="QDd9NUynOj92PzqIMp_m" version="22.1.16" type="device">
   <diagram name="Page-1" id="4XVdnm4Mh2VWJTdFokWx">
     <mxGraphModel dx="719" dy="1763" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -245,7 +245,7 @@
             <mxPoint x="280" y="485" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FvD66rcxhZCY_vO8rHZ7-30" value="HTTP Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="FvD66rcxhZCY_vO8rHZ7-30" value="gRPC Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="120" y="455" width="30" height="60" as="geometry" />
         </mxCell>
       </root>
