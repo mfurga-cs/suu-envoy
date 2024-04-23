@@ -2,3 +2,6 @@ include:
   - services/docker-compose.yaml
   - lb/docker-compose.yaml
   - proxy/docker-compose.yaml
+  - grpc/docker-compose.yaml
+  - grpc-lb/docker-compose.yaml
+  - grpc-proxy/docker-compose.yaml

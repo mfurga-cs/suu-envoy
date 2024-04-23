@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+package suu;
+
+message InfoResult {
+  string name = 1;
+  string ip = 2;
+}
+
+message Empty {}
+
+service Test1 {
+  rpc Info1 (Empty) returns (InfoResult) {}
+}
+
+service Test2 {
+  rpc Info2 (Empty) returns (InfoResult) {}
+}
+
+service Test3 {
+  rpc Info3 (Empty) returns (InfoResult) {}
+}

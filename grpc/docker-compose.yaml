@@ -1,0 +1,25 @@
+services:
+  grpc-service-1:
+    build: .
+    environment:
+      SERVICE_NAME: Test1
+      PORT: 8000
+    # can't define ports here (docker compose scale doesn't work)
+    #ports:
+      #- "8001:8000"
+
+  grpc-service-2:
+    build: .
+    environment:
+      SERVICE_NAME: Test2
+      PORT: 8000
+    #ports:
+      #- "8002:8000"
+
+  grpc-service-3:
+    build: .
+    environment:
+      SERVICE_NAME: Test3
+      PORT: 8000
+    #ports:
+      #- "8003:8000"
