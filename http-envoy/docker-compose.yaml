@@ -1,0 +1,44 @@
+include:
+  - ../services/docker-compose.yaml
+
+services:
+  
+  proxy:
+    image: envoyproxy/envoy:v1.30.1
+    volumes:
+      - ${PWD}/proxy-envoy.yaml:/envoy.yaml
+    command:
+      -c /envoy.yaml
+    ports:
+      - 8000:8000 # http proxy
+      - 9000:9000 # admin interface
+      
+  service-1-envoy:
+    image: envoyproxy/envoy:v1.30.1
+    volumes:
+      - ${PWD}/service-1-envoy.yaml:/envoy.yaml
+    command:
+      -c /envoy.yaml
+    ports:
+      - 8001:8000
+      - 9001:9000
+      
+  service-2-envoy:
+    image: envoyproxy/envoy:v1.30.1
+    volumes:
+      - ${PWD}/service-2-envoy.yaml:/envoy.yaml
+    command:
+      -c /envoy.yaml
+    ports:
+      - 8002:8000
+      - 9002:9000
+      
+  service-3-envoy:
+    image: envoyproxy/envoy:v1.30.1
+    volumes:
+      - ${PWD}/service-3-envoy.yaml:/envoy.yaml
+    command:
+      -c /envoy.yaml
+    ports:
+      - 8003:8000
+      - 9003:9000

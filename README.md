@@ -14,3 +14,10 @@ Envoy is built to be highly performant and extensible, with features like dynami
 
 ## Case study concept description
 ![Case study concept image](docs/case-study.jpg "Case study concept image")
+
+## Http proxy setup
+- `cd http-envoy`
+- `docker compose up -d`
+- `docker compose scale service-1=3`
+- Visit `http://localhost:8000/service-1/endpoint-1`
+- observe `ip` address change

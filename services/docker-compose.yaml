@@ -4,19 +4,20 @@ services:
     build: .
     environment:
       SERVICE_NAME: service-1
-    ports:
-      - "8001:8000"
+    # can't define ports here (docker compose scale doesn't work)
+    #ports:
+      #- "8001:8000"
 
   service-2:
     build: .
     environment:
       SERVICE_NAME: service-2
-    ports:
-      - "8002:8000"
+    #ports:
+      #- "8002:8000"
 
   service-3:
     build: .
     environment:
       SERVICE_NAME: service-3
-    ports:
-      - "8003:8000"
+    #ports:
+      #- "8003:8000"
