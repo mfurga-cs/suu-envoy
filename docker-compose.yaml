@@ -1,0 +1,4 @@
+include:
+  - services/docker-compose.yaml
+  - lb/docker-compose.yaml
+  - proxy/docker-compose.yaml
