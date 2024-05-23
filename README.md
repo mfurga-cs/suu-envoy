@@ -4,19 +4,17 @@ Authors: Filip Kitka, Mateusz Furga, Norbert Morawski, Łukasz Wala
 
 Group: 6 (Thursday 13:15) | Year: 2024
 
-## Introduction
-
-Envoy proxy is an open-source edge and service proxy designed for cloud-native applications. It is widely used in modern microservices architectures and service mesh implementations.
-
-Envoy is built to be highly performant and extensible, with features like dynamic service discovery, load balancing, TLS termination, HTTP/2 and gRPC proxying, circuit breaking, retries, rate limiting, observability, and more. It is often deployed as a sidecar alongside each service instance in a microservices architecture, facilitating communication between services and providing various traffic management functionalities.
-
-## Theoretical background / technology stack
-
-## Case study concept description
+## Case study
 ![Case study concept image](docs/case-study.jpg "Case study concept image")
 
-## Http proxy setup
-- `docker compose up -d` in main repo dir
-- `docker compose scale service-1=3`
-- Visit `http://localhost:8000/service-1/endpoint-1`
-- observe `ip` address change
+[Case study PDF](docs/doc.pdf)
+
+## Service mesh setup
+In main repo dir run:
+	- Build & deploy: `docker compose up --build -d`,
+	- Verify: `./test.sh`.
+
+Scaling test:
+	- `docker compose scale http-service-1-envoy=3`,
+	- `docker compose scale grpc-service-1-envoy=3`,
+	- observe **IP** address change during multiple `./test.sh` runs.
