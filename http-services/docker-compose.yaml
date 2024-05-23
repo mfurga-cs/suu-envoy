@@ -9,6 +9,9 @@ services:
       - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-1
+    depends_on:
+      postgres-service:
+        condition: service_healthy
 
   http-service-2-envoy:
     build: .
@@ -16,6 +19,9 @@ services:
       - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-2
+    depends_on:
+      postgres-service:
+        condition: service_healthy
 
   http-service-3-envoy:
     build: .
@@ -23,3 +29,6 @@ services:
       - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-3
+    depends_on:
+      postgres-service:
+        condition: service_healthy

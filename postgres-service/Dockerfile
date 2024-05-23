@@ -16,4 +16,4 @@ RUN postgres & sleep 1 && psql < /tmp/init.sql
 
 # start envoy in background (&)
 # replace shell with postgres (exec)
-CMD ["/bin/bash", "-c", "envoy -c /envoy.yaml & exec postgres"]
+CMD ["/bin/bash", "-c", "rm -f /var/lib/postgresql/data/postmaster.pid /var/run/postgresql/.s.*.lock && envoy -c /envoy.yaml & exec postgres"]

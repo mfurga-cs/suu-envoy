@@ -1,11 +1,11 @@
 echo "ENVOY test"
 
 echo -e "\n\nHTTP service-1:"
-curl 127.0.0.1:8000/service-1/endpoint-1
+curl 127.0.0.1:8000/service-1/dbquery
 echo -e "\n\nHTTP service-2:"
-curl 127.0.0.1:8000/service-2/endpoint-1
+curl 127.0.0.1:8000/service-2/dbquery
 echo -e "\n\nHTTP service-3:"
-curl 127.0.0.1:8000/service-3/endpoint-1
+curl 127.0.0.1:8000/service-3/dbquery
 
 echo -e "\n"
 

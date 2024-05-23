@@ -12,3 +12,8 @@ services:
     ports:
       - 12000:8000 # db access with psql via envoy
       - 13000:9000 # admin
+    healthcheck:
+        test: ["CMD", "psql"]
+        interval: 1s
+        timeout: 1s
+        retries: 10
