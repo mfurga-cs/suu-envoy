@@ -1,0 +1,14 @@
+# services listen on localhost only, port 5432
+# envoy sidecar accesses them via localhost:5432
+# and envoy runs on 8000 port externally
+
+services:
+  postgres-service:
+    build: .
+    volumes:
+      - ./postgres-sidecar-envoy.yaml:/envoy.yaml
+      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+      - ./postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+    ports:
+      - 12000:8000 # db access with psql via envoy
+      - 13000:9000 # admin

@@ -15,3 +15,7 @@ echo -e "\ngRPC service-2:"
 grpcurl -plaintext -proto grpc-services/info.proto 127.0.0.1:10000 suu.Test2/Info2
 echo -e "\ngRPC service-3:"
 grpcurl -plaintext -proto grpc-services/info.proto 127.0.0.1:10000 suu.Test3/Info3
+
+echo -e "\nPostgres service:"
+echo "SELECT * FROM cars;" | \
+	PGPASSWORD=envoy psql -h 127.0.0.1 -p 12000 -U envoy --dbname=envoy
