@@ -1,23 +1,25 @@
-version: "3.8"
+# services listen on localhost only, port 20000
+# envoy sidecar accesses them via localhost:20000
+# and envoy runs on 8000 port externally
+
 services:
-  service-1:
+  http-service-1-envoy:
     build: .
+    volumes:
+      - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-1
-    # can't define ports here (docker compose scale doesn't work)
-    #ports:
-      #- "8001:8000"
 
-  service-2:
+  http-service-2-envoy:
     build: .
+    volumes:
+      - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-2
-    #ports:
-      #- "8002:8000"
 
-  service-3:
+  http-service-3-envoy:
     build: .
+    volumes:
+      - ./http-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: service-3
-    #ports:
-      #- "8003:8000"

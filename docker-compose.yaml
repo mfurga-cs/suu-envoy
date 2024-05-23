@@ -1,7 +1,5 @@
 include:
-  - http-lb/docker-compose.yaml
   - http-proxy/docker-compose.yaml
   - http-services/docker-compose.yaml
-  - grpc-lb/docker-compose.yaml
   - grpc-proxy/docker-compose.yaml
   - grpc-services/docker-compose.yaml

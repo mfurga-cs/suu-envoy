@@ -21,58 +21,58 @@ static_resources:
                 - match:
                     prefix: "/service-1"
                   route:
-                    cluster: service-1-envoy
+                    cluster: http-service-1-envoy
                 - match:
                     prefix: "/service-2"
                   route:
-                    cluster: service-2-envoy
+                    cluster: http-service-2-envoy
                 - match:
                     prefix: "/service-3"
                   route:
-                    cluster: service-3-envoy
+                    cluster: http-service-3-envoy
             http_filters:
               - name: envoy.filters.http.router
                 typed_config:
                   "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
 
   clusters:
-    - name: service-1-envoy
+    - name: http-service-1-envoy
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
       load_assignment:
-        cluster_name: service-1-envoy
+        cluster_name: http-service-1-envoy
         endpoints:
         - lb_endpoints:
           - endpoint:
               address:
                 socket_address:
-                  address: service-1-envoy
+                  address: http-service-1-envoy
                   port_value: 8000
     
-    - name: service-2-envoy
+    - name: http-service-2-envoy
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
       load_assignment:
-        cluster_name: service-2-envoy
+        cluster_name: http-service-2-envoy
         endpoints:
         - lb_endpoints:
           - endpoint:
               address:
                 socket_address:
-                  address: service-2-envoy
+                  address: http-service-2-envoy
                   port_value: 8000
 
-    - name: service-3-envoy
+    - name: http-service-3-envoy
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
       load_assignment:
-        cluster_name: service-3-envoy
+        cluster_name: http-service-3-envoy
         endpoints:
         - lb_endpoints:
           - endpoint:
               address:
                 socket_address:
-                  address: service-3-envoy
+                  address: http-service-3-envoy
                   port_value: 8000
 admin:
   address:

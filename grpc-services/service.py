@@ -6,7 +6,15 @@ ip = socket.gethostbyname(hostname)
 
 import os
 SERVICE_NAME = os.environ.get("SERVICE_NAME", "?")
-PORT = os.environ.get("PORT", "?")
+PATH = "localhost:20000"
+
+import sys # for stdout flush
+import signal
+
+# faster shutdown
+def sigterm():
+    sys.exit(0)
+signal.signal(signal.SIGTERM, sigterm)
 
 import grpc
 import info_pb2_grpc
@@ -46,8 +54,12 @@ def serve():
     else:
         raise KeyError("no such service")
     
-    server.add_insecure_port(f"[::]:{PORT}")
+    print(f"Starting service {SERVICE_NAME} at {PATH}")
+    sys.stdout.flush()
+    
+    server.add_insecure_port(PATH)
     server.start()
     server.wait_for_termination()
-    
+
+
 serve()

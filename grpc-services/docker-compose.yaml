@@ -1,25 +1,25 @@
+# services listen on localhost only, port 20000
+# envoy sidecar accesses them via localhost:20000
+# and envoy runs on 8000 port externally
+
 services:
-  grpc-service-1:
+  grpc-service-1-envoy:
     build: .
+    volumes:
+      - ./grpc-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: Test1
-      PORT: 8000
-    # can't define ports here (docker compose scale doesn't work)
-    #ports:
-      #- "8001:8000"
 
-  grpc-service-2:
+  grpc-service-2-envoy:
     build: .
+    volumes:
+      - ./grpc-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: Test2
-      PORT: 8000
-    #ports:
-      #- "8002:8000"
 
-  grpc-service-3:
+  grpc-service-3-envoy:
     build: .
+    volumes:
+      - ./grpc-sidecar-envoy.yaml:/envoy.yaml
     environment:
       SERVICE_NAME: Test3
-      PORT: 8000
-    #ports:
-      #- "8003:8000"
