@@ -18,3 +18,7 @@ Scaling test:
 - `docker compose scale http-service-1-envoy=3`,
 - `docker compose scale grpc-service-1-envoy=3`,
 - observe **IP** address change during multiple `./test.sh` runs.
+
+## Stats
+
+The visualization of metrics is available on [http://localhost:3000](http://localhost:3000).
