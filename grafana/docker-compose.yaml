@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    restart: unless-stopped
+    volumes:
+      - "grafana_data:/var/lib/grafana"
+      - "./provisioning:/etc/grafana/provisioning"
+    ports:
+     - 3000:3000
+
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    ports:
+      - 9090:9090
+
+volumes:
+  grafana_data: {}
+  prometheus_data: {}

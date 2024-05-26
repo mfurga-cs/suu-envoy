@@ -4,3 +4,4 @@ include:
   - grpc-proxy/docker-compose.yaml
   - grpc-services/docker-compose.yaml
   - postgres-service/docker-compose.yaml
+  - grafana/docker-compose.yaml

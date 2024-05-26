@@ -1,0 +1,43 @@
+global:
+  scrape_interval: 5s
+  scrape_timeout: 1s
+  evaluation_interval: 5s
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: []
+    scheme: http
+    timeout: 10s
+
+scrape_configs:
+
+# http-proxy
+- job_name: http-proxy
+  metrics_path: /stats/prometheus
+  scheme: http
+  static_configs:
+  - targets:
+    - 'http-proxy:9000'
+    labels:
+      service: http-proxy
+
+# postgres-service
+- job_name: postgres-service
+  metrics_path: /stats/prometheus
+  scheme: http
+  static_configs:
+  - targets:
+    - 'postgres-service:9000'
+    labels:
+      service: postgres-service
+
+# grpc-proxy
+- job_name: grpc-proxy
+  metrics_path: /stats/prometheus
+  scheme: http
+  static_configs:
+  - targets:
+    - 'grpc-proxy:9000'
+    labels:
+      service: grpc-proxy
